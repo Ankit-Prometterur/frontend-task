@@ -25,14 +25,14 @@ const questions = [
     answer: "Netscape"
   },
   {
-    question: "Which symbol is used for comments in JavaScript?",
-    options: ["//", "<!-- -->", "#", "**"],
-    answer: "//"
+    question: "Which attribute is used to provide an alternative text for an image if it cannot be displayed?",
+    options: ["title", "src", "alt", "longdesc"],
+    answer: "alt"
   },
   {
-    question: "Which HTML tag is used to create a hyperlink?",
-    options: ["<link>", "<a>", "<href>", "<url>"],
-    answer: "<a>"
+    question: "What is the output of typeof null in JavaScript?",
+    options: ["null", "undefined", "object", "boolean"],
+    answer: "object"
   },
   {
     question: "Which CSS property changes the text color?",
