@@ -1,11 +1,110 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Expense Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="header">
+            <div class="header-left">
+                <div>
+                    <h1><i class="fa-solid fa-wallet"></i> Expense Tracker</h1>
+                    <p>Track your income, expenses and financial balance</p>
+                </div>
+            </div>
+
+            <div class="header-right">
+                <button class="export-btn" onclick="exportTransactions()"><i class="fa-solid fa-file-export"></i> Export
+                    Report</button>
+                <div class="profile-card">
+                    <img src="https://i.pravatar.cc/100?img=12" alt="profile">
+                    <div>
+                        <h4>Ankit Gupta</h4>
+                        <p><i class="fa-solid fa-crown"></i> Premium User</p>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="summary">
+            <div class="summary-card balance">
+                <h3><i class="fa-solid fa-scale-balanced"></i> Total Balance</h3>
+                <h2 id="balance">₹0</h2>
+            </div>
+
+            <div class="summary-card income">
+                <h3><i class="fa-solid fa-arrow-trend-up"></i> Total Income</h3>
+                <h2 id="income">₹0</h2>
+            </div>
+
+            <div class="summary-card expense">
+                <h3><i class="fa-solid fa-arrow-trend-down"></i> Total Expense</h3>
+                <h2 id="expense">₹0</h2>
+            </div>
+        </div>
+
+        <div class="dashboard">
+            <div class="card form-card">
+                <h2 id="formTitle">Add Transaction</h2>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-pen"></i> Description</label>
+                    <input type="text" id="description" placeholder="Enter description">
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-indian-rupee-sign"></i> Amount</label>
+                    <input type="number" id="amount" placeholder="Enter amount">
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-layer-group"></i> Type</label>
+                    <select id="type">
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label><i class="fa-solid fa-calendar-days"></i> Date</label>
+                    <input type="date" id="date">
+                </div>
+
+                <button class="btn" onclick="saveTransaction()" id="saveBtn"><i class="fa-solid fa-plus"></i> Add
+                    Transaction</button>
+            </div>
+
+            <div class="card transactions-card">
+                <h2>Transactions</h2>
+
+                <div class="filter-section">
+                    <input type="date" id="fromDate" onchange="renderTransactions()">
+                    <input type="date" id="toDate" onchange="renderTransactions()">
+                    <select id="filterType" onchange="renderTransactions()">
+                        <option value="all">All Types</option>
+                        <option value="income">Income</option>
+                        <option value="expense">Expense</option>
+                    </select>
+                </div>
+
+                <div class="transaction-list" id="transactionList"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
