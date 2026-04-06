@@ -1,13 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Recipe Finder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?
+family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-    
+    <div class="container">
+        <section class="hero">
+            <h1><i class="fa-solid fa-utensils"></i>Recipe Finder</h1>
+            <p>Search delicious recipes by recipe name or incredients.</p>
+        </section>
+
+        <section class="search-section">
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="searchInput" placeholder="Search by recipe name or ingredient...">
+            </div>
+
+            <select id="categoryFilter">
+                <option value="all">All Categories</option>
+            </select>
+
+            <select id="sortFilter">
+                <option value="default">Sort By</option>
+                <option value="time-low">Cooking Time: Low to High</option>
+                <option value="time-high">Cooking Time: High to Low</option>
+                <option value="title">Recipe Title</option>
+            </select>
+        </section>
+
+        <section class="stats">
+            <div class="stat-card">
+                <i class="fa-solid fa-bowl-food"></i>
+                <h3 id="totalRecipes">0</h3>
+                <p>Total Recipes</p>
+            </div>
+
+            <div class="stat-card">
+                <i class="fa-solid fa-filter"></i>
+                <h3 id="filteredRecipes">0</h3>
+                <p>Matching Results</p>
+            </div>
+        </section>
+
+        <div class="recipe-grid" id="recipeGrid"></div>
+        <div class="no-results" id="noResults">
+            <i class="fa-solid fa-face-frown"></i>
+
+            <h2>No Results Found</h2>
+            <p>Try a different search.</p>
+        </div>
+    </div>
+
+
+    <div class="modal" id="recipeModal">
+        <div class="modal-content">
+            <button class="close-btn" id="closeModal">
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+            <div class="modal-header">
+                <img id="modalImage" alt="Recipe Image">
+            </div>
+
+            <div class="modal-body">
+                <h2 id="modalTitle"></h2>
+
+                <div class="modal-tags">
+                    <span id="modalCategory"></span>
+                    <span id="modalTime"></span>
+                </div>
+
+                <div class="section-title">Ingredients</div>
+                <div class="ingredients-list" id="ingredientsList"></div>
+                <h3 class="section-title">Instructions</h3>
+                <div class="instructions" id="instructionsList"></div>
+            </div>
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
+
 </html>
