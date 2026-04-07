@@ -7,6 +7,11 @@ const noResults = document.getElementById('noResults');
 const totalRecipes = document.getElementById('totalRecipes');
 const filteredRecipes = document.getElementById('filteredRecipes');
 
+const selectedIngredientsContainer = document.getElementById('selectedIngredients');
+const ingredientSuggestions = document.getElementById('ingredientSuggestions');
+
+let selectedIngredients = [];
+
 let allRecipes = [];
 
 async function fetchRecipes() {
@@ -38,6 +43,69 @@ function populateCategories() {
         option.value = category;
         option.textContent = category;
         categoryFilter.appendChild(option);
+    });
+}
+
+function showIngredientSuggestions(value) {
+    ingredientSuggestions.innerHTML = '';
+
+    if (!value.trim()) {
+        ingredientSuggestions.style.display = 'none';
+        return;
+    }
+
+    const allIngredients = [...new Set(
+        allRecipes.flatMap(recipe => recipe.ingredients)
+    )];
+
+    const matches = allIngredients.filter(ingredient =>
+        ingredient.toLowerCase().includes(value.toLowerCase()) &&
+        !selectedIngredients.includes(ingredient)
+    );
+
+    if (matches.length === 0) {
+        ingredientSuggestions.style.display = 'none';
+        return;
+    }
+
+    ingredientSuggestions.style.display = 'flex';
+
+    matches.slice(0, 15).forEach(ingredient => {
+        const chip = document.createElement('div');
+        chip.className = 'ingredient-chip';
+        chip.textContent = ingredient;
+
+        chip.addEventListener('click', () => {
+            selectedIngredients.push(ingredient);
+            renderSelectedIngredients();
+            ingredientSuggestions.style.display = 'none';
+            searchInput.value = '';
+            filterRecipes();
+        });
+
+        ingredientSuggestions.appendChild(chip);
+    });
+}
+
+function renderSelectedIngredients() {
+    selectedIngredientsContainer.innerHTML = '';
+
+    selectedIngredients.forEach((ingredient, index) => {
+        const tag = document.createElement('div');
+        tag.className = 'selected-tag';
+
+        tag.innerHTML = `
+            ${ingredient}
+            <i class="fa-solid fa-xmark"></i>
+        `;
+
+        tag.querySelector('i').addEventListener('click', () => {
+            selectedIngredients.splice(index, 1);
+            renderSelectedIngredients();
+            filterRecipes();
+        });
+
+        selectedIngredientsContainer.appendChild(tag);
     });
 }
 
@@ -79,20 +147,27 @@ function renderRecipes(recipes) {
 }
 
 function filterRecipes() {
-    const search = searchInput.value.toLowerCase();
+    const search = searchInput.value.toLowerCase().trim();
     const category = categoryFilter.value;
     const sort = sortFilter.value;
 
     let filtered = allRecipes.filter(recipe => {
-        const titleMatch = recipe.title.toLowerCase().includes(search);
+        const titleMatch = search === '' || recipe.title.toLowerCase().includes(search);
 
-        const ingredientMatch = recipe.ingredients.some(ingredient =>
-            ingredient.toLowerCase().includes(search)
-        );
+        const searchIngredientMatch = search === '' || recipe.ingredients.some(ingredient => ingredient.toLowerCase().includes(search));
+
+        const selectedIngredientMatch = selectedIngredients.length === 0 || selectedIngredients.every(selected => recipe.ingredients.some(ingredient => ingredient.toLowerCase() === selected.toLowerCase()));
 
         const categoryMatch = category === 'all' || recipe.category === category;
 
-        return (titleMatch || ingredientMatch) && categoryMatch;
+        // const ingredientMatch = recipe.ingredients.some(ingredient =>
+        //     ingredient.toLowerCase().includes(search)
+        // ) && 
+        // selectedIngredients.every(selected => recipe.ingredients.includes(selected));
+
+        // const categoryMatch = category === 'all' || recipe.category === category;
+
+        return (titleMatch || searchIngredientMatch) && selectedIngredientMatch && categoryMatch;
     });
 
     if (sort === 'time-low') {
@@ -153,7 +228,10 @@ recipeModal.addEventListener('click', e => {
     }
 });
 
-searchInput.addEventListener('input', filterRecipes);
+searchInput.addEventListener('input', () => {
+    showIngredientSuggestions(searchInput.value);
+    filterRecipes();
+});
 categoryFilter.addEventListener('change', filterRecipes);
 sortFilter.addEventListener('change', filterRecipes);
 

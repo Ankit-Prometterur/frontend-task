@@ -277,6 +277,54 @@ select {
   line-height: 1.7;
 }
 
+.selected-ingredients{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 20px 0 10px;
+}
+
+.selected-tag{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #ff5a36, #ff7d3a);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 30px;
+  font-size: 0.9rem;
+}
+
+.selected-tag i{
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+.ingredient-suggestions{
+  display: none;
+  flex-wrap: wrap;
+  gap: 10px;
+  background: white;
+  border-radius: 20px;
+  padding: 16px;
+  margin-bottom: 25px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.ingredient-chip{
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: 0.2s;
+  background: #fff;
+}
+
+.ingredient-chip:hover{
+  background: #ff5a36;
+  color: white;
+  border-color: #ff5a36;
+}
 
 @media (max-width: 768px) {
   .hero h1 {
