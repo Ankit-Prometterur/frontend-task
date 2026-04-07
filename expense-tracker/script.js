@@ -48,7 +48,7 @@ function renderTransactions() {
   const toDate = document.getElementById('toDate').value;
   const filterType = document.getElementById('filterType').value;
 
-  let filteredTransactions = [...transactions];
+  let filteredTransactions = [...transactions].reverse();
 
   if (fromDate) {
     filteredTransactions = filteredTransactions.filter(item => item.date >= fromDate);
