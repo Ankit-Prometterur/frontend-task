@@ -2,7 +2,12 @@ let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 let editId = null;
 let deleteId = null;
 
+
 document.getElementById('date').valueAsDate = new Date();
+
+function formatCurrency(amount) {
+  return amount.toLocaleString('en-IN');
+}
 
 function saveTransaction() {
   const description = document.getElementById('description').value.trim();
@@ -81,7 +86,7 @@ function renderTransactions() {
           </div>
         </div>
         <div>
-          ${item.type === 'income' ? '+' : '-'}₹${item.amount}
+          ${item.type === 'income' ? '+' : '-'}₹${formatCurrency(item.amount)}
         </div>
       </div>
     `;
@@ -93,12 +98,12 @@ function deleteTransaction(id) {
   document.getElementById('deleteModal').classList.add('show');
 }
 
-function closeDeleteModal(){
+function closeDeleteModal() {
   document.getElementById('deleteModal').classList.remove('show');
   deleteId = null;
 }
 
-function confirmDelete(){
+function confirmDelete() {
   transactions = transactions.filter(item => item.id != deleteId);
 
   localStorage.setItem('transactions', JSON.stringify(transactions));
@@ -159,9 +164,9 @@ function updateSummary() {
 
   const balance = income - expense;
 
-  document.getElementById('income').textContent = `₹${income}`;
-  document.getElementById('expense').textContent = `₹${expense}`;
-  document.getElementById('balance').textContent = `₹${balance}`;
+  document.getElementById('income').textContent = `₹${formatCurrency(income)}`;
+  document.getElementById('expense').textContent = `₹${formatCurrency(expense)}`;
+  document.getElementById('balance').textContent = `₹${formatCurrency(balance)}`;
 }
 
 function clearForm() {
