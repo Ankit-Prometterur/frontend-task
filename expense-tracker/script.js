@@ -65,30 +65,44 @@ function renderTransactions() {
   list.innerHTML = '';
 
   if (filteredTransactions.length === 0) {
-    list.innerHTML = '<p style="color:#94a3b8;text-align:center;padding:20px;">No transactions found</p>';
+    list.innerHTML = `
+      <tr>
+        <td colspan="5" style="text-align:center; color:#94a3b8; padding:30px;">
+          No transactions found
+        </td>
+      </tr>
+    `;
     return;
   }
 
   filteredTransactions.forEach(item => {
     list.innerHTML += `
-      <div class="transaction ${item.type}-item">
-        <div>
-          <h4>${item.description}</h4>
-          <p>${item.date}</p>
-          <div class="actions">
-            <button class="icon-btn edit-btn" onclick="editTransaction(${item.id})">
-  <i class="fa-solid fa-pen"></i> Edit
-</button>
+      <tr>
+        <td>${item.description}</td>
+        <td>${item.date}</td>
 
-<button class="icon-btn delete-btn" onclick="deleteTransaction(${item.id})">
-  <i class="fa-solid fa-trash"></i> Delete
-</button>
-          </div>
-        </div>
-        <div>
+        <td>
+          <span class="${item.type === 'income' ? 'amount-income' : 'amount-expense'}">
+            ${item.type.charAt(0).toUpperCase() + item.type.slice(1)}
+          </span>
+        </td>
+
+        <td class="${item.type === 'income' ? 'amount-income' : 'amount-expense'}">
           ${item.type === 'income' ? '+' : '-'}₹${formatCurrency(item.amount)}
-        </div>
-      </div>
+        </td>
+
+        <td>
+          <div class="action-buttons">
+            <button class="icon-btn edit-btn" onclick="editTransaction(${item.id})">
+              <i class="fa-solid fa-pen"></i>
+            </button>
+
+            <button class="icon-btn delete-btn" onclick="deleteTransaction(${item.id})">
+              <i class="fa-solid fa-trash"></i>
+            </button>
+          </div>
+        </td>
+      </tr>
     `;
   });
 }

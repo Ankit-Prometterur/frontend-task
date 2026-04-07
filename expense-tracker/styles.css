@@ -389,7 +389,56 @@ label i,
   line-height: 1.6;
 }
 
+.table-wrapper{
+  overflow-x: auto;
+  border-radius: 18px;
+}
 
+.transaction-table{
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+}
+
+.transaction-table thead{
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.transaction-table th,
+.transaction-table td{
+  padding: 18px 16px;
+  text-align: left;
+}
+
+.transaction-table th{
+  color: #cbd5e1;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.transaction-table tbody tr{
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  transition: 0.3s ease;
+}
+
+.transaction-table tbody tr:hover {
+  background: rgba(255,255,255,0.05);
+}
+
+.amount-income {
+  color: #22c55e;
+  font-weight: 600;
+}
+
+.amount-expense {
+  color: #ef4444;
+  font-weight: 600;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
 @media (max-width: 768px) {
   .summary {
     grid-template-columns: 1fr;

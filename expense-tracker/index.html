@@ -99,7 +99,20 @@
                     </select>
                 </div>
 
-                <div class="transaction-list" id="transactionList"></div>
+                <div class="table-wrapper">
+                    <table class="transaction-table">
+                        <thead>
+                            <tr>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Type</th>
+                                <th>Amount</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactionList"></tbody>
+                    </table>
+                </div>
 
                 <div class="modal" id="editModal">
                     <div class="modal-content">
