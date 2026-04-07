@@ -70,8 +70,13 @@ function renderTransactions() {
           <h4>${item.description}</h4>
           <p>${item.date}</p>
           <div class="actions">
-            <button class="icon-btn edit-btn" onclick="editTransaction(${item.id})">Edit</button>
-            <button class="icon-btn delete-btn" onclick="deleteTransaction(${item.id})">Delete</button>
+            <button class="icon-btn edit-btn" onclick="editTransaction(${item.id})">
+  <i class="fa-solid fa-pen"></i> Edit
+</button>
+
+<button class="icon-btn delete-btn" onclick="deleteTransaction(${item.id})">
+  <i class="fa-solid fa-trash"></i> Delete
+</button>
           </div>
         </div>
         <div>
@@ -91,13 +96,43 @@ function deleteTransaction(id) {
 
 function editTransaction(id) {
   const item = transactions.find(t => t.id === id);
-
-  document.getElementById('description').value = item.description;
-  document.getElementById('amount').value = item.amount;
-  document.getElementById('type').value = item.type;
-  document.getElementById('date').value = item.date;
-
   editId = id;
+
+  document.getElementById('editDescription').value = item.description;
+  document.getElementById('editAmount').value = item.amount;
+  document.getElementById('editType').value = item.type;
+  document.getElementById('editDate').value = item.date;
+  document.getElementById('editModal').classList.add('show');
+
+}
+
+function closeEditModal() {
+  document.getElementById('editModal').classList.remove('show');
+}
+
+function updateTransaction() {
+  const description = document.getElementById('editDescription').value.trim();
+  const amount = parseFloat(document.getElementById('editAmount').value);
+  const type = document.getElementById('editType').value;
+  const date = document.getElementById('editDate').value;
+
+  if (!description || isNaN(amount) || amount <= 0 || !date) {
+    alert('Please fill all fields correctly.');
+    return;
+  }
+
+  transactions = transactions.map(item =>
+    item.id === editId ?
+      { ...item, description, amount, type, date }
+
+      : item
+  );
+
+  localStorage.setItem('transactions', JSON.stringify(transactions));
+
+  renderTransactions();
+  updateSummary();
+  closeEditModal();
 }
 
 function updateSummary() {

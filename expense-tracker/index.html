@@ -100,6 +100,47 @@
                 </div>
 
                 <div class="transaction-list" id="transactionList"></div>
+
+                <div class="modal" id="editModal">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h2><i class="fa-solid fa-pen-to-square"></i> Edit Transaction</h2>
+                            <button class="close-btn" onclick="closeEditModal()">
+                                <i class="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-pen"></i> Description</label>
+                            <input type="text" id="editDescription" placeholder="Enter description">
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-indian-rupee-sign"></i> Amount</label>
+                            <input type="number" id="editAmount" placeholder="Enter amount">
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-layer-group"></i> Type</label>
+                            <select id="editType">
+                                <option value="income">Income</option>
+                                <option value="expense">Expense</option>
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label><i class="fa-solid fa-calendar-days"></i> Date</label>
+                            <input type="date" id="editDate">
+                        </div>
+
+                        <div class="modal-actions">
+                            <button class="cancel-btn" onclick="closeEditModal()">Cancel</button>
+                            <button class="save-modal-btn" onclick="updateTransaction()">
+                                <i class="fa-solid fa-floppy-disk"></i> Save Changes
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
