@@ -339,7 +339,8 @@ label i,
 }
 
 .cancel-btn,
-.save-modal-btn{
+.save-modal-btn,
+.delete-confirm-btn{
   border: none;
   padding: 12px 22px;
   border-radius: 12px;
@@ -357,6 +358,36 @@ label i,
   background: linear-gradient(135deg, #ef4444, #f97316);
 }
 
+.delete-confirm-btn {
+  background: linear-gradient(135deg, #ef4444, #f97316);
+}
+
+.delete-content{
+  text-align: center;
+  max-width: 420px;
+}
+
+.delete-icon{
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 18px;
+  border-radius: 50%;
+  background: rgba(239, 68, 68, 0.15);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ef4444;
+  font-size: 1.8rem;
+}
+
+.delete-content h2{
+  margin-bottom: 10px;
+}
+
+.delete-content p{
+  color: #94a3b8;
+  line-height: 1.6;
+}
 
 
 @media (max-width: 768px) {

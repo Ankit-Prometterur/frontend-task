@@ -141,6 +141,24 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="modal" id="deleteModal">
+                    <div class="modal-content" delete-content>
+                        <div class="delete-icon">
+                            <i class="fa-solid fa-trash"></i>
+                        </div>
+
+                        <h2>Delete Transaction?</h2>
+                        <p>Are you sure want to delete this transaction? This action cannot be undone.</p>
+
+                        <div class="modal-actions">
+                            <button class="cancel-btn" onclick="closeDeleteModal()">Cancel</button>
+                            <button class="delete-confirm-btn" onclick="confirmDelete()">
+                                <i class="fa-solid fa-trash"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

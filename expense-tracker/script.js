@@ -1,5 +1,6 @@
 let transactions = JSON.parse(localStorage.getItem('transactions')) || [];
 let editId = null;
+let deleteId = null;
 
 document.getElementById('date').valueAsDate = new Date();
 
@@ -88,10 +89,22 @@ function renderTransactions() {
 }
 
 function deleteTransaction(id) {
-  transactions = transactions.filter(item => item.id !== id);
+  deleteId = id;
+  document.getElementById('deleteModal').classList.add('show');
+}
+
+function closeDeleteModal(){
+  document.getElementById('deleteModal').classList.remove('show');
+  deleteId = null;
+}
+
+function confirmDelete(){
+  transactions = transactions.filter(item => item.id != deleteId);
+
   localStorage.setItem('transactions', JSON.stringify(transactions));
   renderTransactions();
   updateSummary();
+  closeDeleteModal();
 }
 
 function editTransaction(id) {
