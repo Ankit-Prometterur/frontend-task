@@ -48,7 +48,9 @@ function renderTransactions() {
   const toDate = document.getElementById('toDate').value;
   const filterType = document.getElementById('filterType').value;
 
-  let filteredTransactions = [...transactions].reverse();
+  let filteredTransactions = [...transactions].sort((a, b) => {
+    return new Date(a.date) - new Date(b.date);
+  });
 
   if (fromDate) {
     filteredTransactions = filteredTransactions.filter(item => item.date >= fromDate);
