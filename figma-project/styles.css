@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inter;
+}
+body{
+    background: #232325;
+    color: white;
+    overflow-x: hidden;
+    font-family: "Inter", sans-serif;
+}
+
+.container{
+    width: 1440px;
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+}
+
+.navbar{
+    width: 1440px;
+    height: 98px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 60px;
+    background: #07070b;
+    position: relative;
+    z-index: 10;
+}
+
+.logo img{
+    width: 160px;
+    height: 38.89px;
+    display: block;
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    width: 250px;
+    height: 39px;
+    gap: 60px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 10px;
+    font-size: 14px;
+    line-height: 100%;
+    position: relative;
+    transition: 0.3 ease;
+    border-radius: 6px;
+}
+
+.active{
+   border-bottom: 2px solid #7717FF;
+}
+
+.nav-links a:hover{
+    border-bottom: 2px solid #7717FF;
+}
+.nav-btn{
+   display: flex;
+   align-items: center;
+   gap: 12px;
+}
+
+.login-btn,
+.register-btn{
+    height: 40px;
+    padding: 0 22px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.login-btn{
+    background: #302E33;
+    color: #fff;
+}
+
+.register-btn{
+   background: #7717FF;
+   color: #fff;
+   margin-right: 40px;
+}
+
