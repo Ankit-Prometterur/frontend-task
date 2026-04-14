@@ -1776,7 +1776,7 @@ body {
 
 @media (max-width: 600px) {
     .community-container {
-        width: 410px;
+        width: 100%;
         height: 281px;
         padding: 60px 20px;
     }
@@ -1826,6 +1826,7 @@ body {
 
 @media (max-width: 430px) {
     .community-container {
+        width: 430px;
         padding: 50px 16px;
     }
 

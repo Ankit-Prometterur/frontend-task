@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="register.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <div class="left-container">
+            <img src="./assets/login-bg.png" alt="" class="left-bg">
+            <img src="./assets/overlay-1.png" alt="" class="top-overlay">
+            <img src="./assets/overlay-2.png" alt="" class="side-overlay">
+            <div class="left-content">
+                <img src="./assets/logo.png" alt="" class="logo-img">
+                <img src="./assets/card-img.png" alt="" class="card-img">
+            </div>
+        </div>
+
+        <div class="right-container">
+            <div class="right-content">
+                <div class="three-steps">
+                    <div class="step active">
+                        <div class="step-icon">
+                             <img src="./assets/step-icon1.png" alt="">
+                        </div>
+                        <p>Personal Info</p>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="step">
+                        <div class="step-icon">
+                             <img src="./assets/step-icon2.png" alt="">
+                        </div>
+                        <p>Club Info</p>
+                    </div>
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+                        <div class="step-icon">
+                             <img src="./assets/step-icon3.png" alt="">
+                        </div>
+                        <p>KYC Info</p>
+                    </div>
+                </div>
+
+                <form class="signup-form">
+                    <div class="input-grid">
+                        <div class="input-group">
+                            <label>First Name*</label>
+                            <input type="text" placeholder="Enter first name">
+                        </div>
+
+                        <div class="input-group">
+                            <label>Last Name*</label>
+                            <input type="text" placeholder="Enter last name">
+                        </div>
+
+                        <div class="input-group">
+                            <label>DOB*</label>
+                            <input type="text" placeholder="DD/MM/YYYY">
+                        </div>
+
+                        <div class="input-group">
+                            <label for="">Phone Number*</label>
+                            <input type="number" placeholder="Enter phone number">
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="">Username*</label>
+                        <input type="text" placeholder="Enter username">
+                    </div>
+
+                    <div class="input-group full-width">
+                        <label for="">Email*</label>
+                        <input type="email" placeholder="Enter email">
+                    </div>
+
+                    <div class="input-group full-width password-group">
+                        <label for="">Password*</label>
+                        <input type="password" placeholder="Enter password">
+                        <img src="./assets/eye-icon.png" alt="" class="eye-icon">
+                    </div>
+
+                    <div class="input-group full-width password-group">
+                        <label for="">Confirm Password*</label>
+                        <input type="password" placeholder="Confirm password">
+                        <img src="./assets/eye-icon.png" alt="" class="eye-icon">
+                    </div>
+
+                    <label class="checkbox-wrap">
+                        <input type="checkbox">
+                        <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
+                    </label>
+
+                    <label class="checkbox-wrap">
+                        <input type="checkbox">
+                        <span>I agree to receive promotional emails, offers, and updates (optional)</span>
+                    </label>
+
+                    <button type="submit" class="submit-btn">Submit</button>
+
+                    <div class="bottom-form">
+                        <p>Already have an account?</p>
+                        <a href="#">Sign in</a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
