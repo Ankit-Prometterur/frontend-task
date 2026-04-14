@@ -16,16 +16,23 @@ body {
     min-height: 100vh;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: minmax(0, 765px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
 .left-container {
-    width: 765px;
+    width: 100%;
+    max-width: 765px;
     height: 1024px;
     position: relative;
     overflow: hidden;
 }
 
+
+.left-container,
+.right-container,
+.right-content{
+    min-width: 0;
+}
 .top-overlay {
     position: absolute;
     right: 30px;
@@ -74,7 +81,8 @@ body {
 }
 
 .right-container {
-    width: 675px;
+     width: 100%;
+    max-width: 675px;
     height: 1024px;
     position: relative;
     display: flex;
