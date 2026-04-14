@@ -23,11 +23,11 @@
         </div>
 
         <div class="right-container">
-            <div class="right-content">
+            <div class="right-content signup-step" id="signupStep">
                 <div class="three-steps">
                     <div class="step active">
                         <div class="step-icon">
-                             <img src="./assets/step-icon1.png" alt="">
+                            <img src="./assets/step-icon1.png" alt="">
                         </div>
                         <p>Personal Info</p>
                     </div>
@@ -36,7 +36,7 @@
 
                     <div class="step">
                         <div class="step-icon">
-                             <img src="./assets/step-icon2.png" alt="">
+                            <img src="./assets/step-icon2.png" alt="">
                         </div>
                         <p>Club Info</p>
                     </div>
@@ -46,7 +46,7 @@
 
                     <div class="step">
                         <div class="step-icon">
-                             <img src="./assets/step-icon3.png" alt="">
+                            <img src="./assets/step-icon3.png" alt="">
                         </div>
                         <p>KYC Info</p>
                     </div>
@@ -70,36 +70,37 @@
                         </div>
 
                         <div class="input-group">
-                            <label for="">Phone Number*</label>
+                            <label>Phone Number*</label>
                             <input type="number" placeholder="Enter phone number">
                         </div>
                     </div>
 
                     <div class="input-group full-width">
-                        <label for="">Username*</label>
+                        <label>Username*</label>
                         <input type="text" placeholder="Enter username">
                     </div>
 
                     <div class="input-group full-width">
-                        <label for="">Email*</label>
+                        <label>Email*</label>
                         <input type="email" placeholder="Enter email">
                     </div>
 
                     <div class="input-group full-width password-group">
-                        <label for="">Password*</label>
+                        <label>Password*</label>
                         <input type="password" placeholder="Enter password">
                         <img src="./assets/eye-icon.png" alt="" class="eye-icon">
                     </div>
 
                     <div class="input-group full-width password-group">
-                        <label for="">Confirm Password*</label>
+                        <label>Confirm Password*</label>
                         <input type="password" placeholder="Confirm password">
                         <img src="./assets/eye-icon.png" alt="" class="eye-icon">
                     </div>
 
                     <label class="checkbox-wrap">
                         <input type="checkbox">
-                        <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy Policy</a></span>
+                        <span>I agree to the <a href="#">Terms & Conditions</a> and <a href="#">Privacy
+                                Policy</a></span>
                     </label>
 
                     <label class="checkbox-wrap">
@@ -115,8 +116,80 @@
                     </div>
                 </form>
             </div>
+
+
+            <div class="right-content club-step-content" id="clubStep"  style="display: none;">
+                <div class="three-steps">
+                    <div class="step completed">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon1.png" alt="">
+                        </div>
+                        <p>Personal Info</p>
+                    </div>
+
+                    <div class="step-line"></div>
+
+                    <div class="step active">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon2.png" alt="">
+                        </div>
+                        <p>Club Info</p>
+                    </div>
+
+                    <div class="step-line"></div>
+
+
+                    <div class="step">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon3.png" alt="">
+                        </div>
+                        <p>KYC Info</p>
+                    </div>
+                </div>
+
+                <div class="club-card">
+                    <h2>Verify Your ClubGG Account</h2>
+                    <p class="club-subtitle">
+                        You can verify now or finish later. Verification is required to access all features.
+                    </p>
+
+                    <div class="input-group full-width club-id-group">
+                        <label>ClubGG Id <span>*</span>
+                            <img src="./assets/info-icon.png" alt="" class="info-icon">
+                        </label>
+                        <input type="text" placeholder="XXXX-XXXX">
+                    </div>
+
+                    <div class="verify-box">
+                        <img src="./assets/verify-icon.png" alt="" class="verify-icon">
+                        <div class="verify-text">
+                            <h4>Verification via Div1 Social</h4>
+                            <p>To verify your account, join Div1 Social in the ClubGG app.
+                                Once joined, return here and click “Verify”</p>
+                        </div>
+                    </div>
+
+                    <div class="input-group full-width social-group">
+                        <label>Social Club
+                            <img src="./assets/info-icon.png" alt="" class="info-icon">
+                        </label>
+                        <input type="text" value="Div1 Social (Club ID: 641132)" readonly>
+                    </div>
+
+                    <p class="club-note">
+                        You won’t be able to add clubs until verification is complete.
+                    </p>
+
+                    <div class="club-buttons">
+                        <button type="button" class="later-btn">Finish Later</button>
+                        <button type="button" class="verify-btn">Verify</button>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+
+    <script src="script.js"></script>
 </body>
 
 </html>
