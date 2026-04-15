@@ -118,7 +118,7 @@
             </div>
 
 
-            <div class="right-content club-step-content" id="clubStep"  style="display: none;">
+            <div class="right-content club-step-content" id="clubStep" style="display: none;">
                 <div class="three-steps">
                     <div class="step completed">
                         <div class="step-icon">
@@ -183,6 +183,85 @@
                     <div class="club-buttons">
                         <button type="button" class="later-btn">Finish Later</button>
                         <button type="button" class="verify-btn">Verify</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="right-content kyc-step-content" id="kycStep" style="display: none;">
+                <div class="three-steps">
+                    <div class="step completed">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon1.png" alt="">
+                        </div>
+                        <p>Personal info</p>
+                    </div>
+
+                    <div class="step-line active-line"></div>
+
+                    <div class="step completed">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon2.png" alt="">
+                        </div>
+                        <p>Club info</p>
+                    </div>
+
+                    <div class="step-line active-line"></div>
+
+                    <div class="step active">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon3.png" alt="">
+                        </div>
+                        <p>KYC info</p>
+                    </div>
+                </div>
+
+                <div class="club-card kyc-card">
+                    <h2>KYC Info</h2>
+
+                    <p class="club-subtitle">
+                        Complete your KYC verification to access all features.
+                    </p>
+
+                    <div class="input-group kyc-group full-width">
+                        <label>Address 1 <span>*</span></label>
+                        <input type="text" placeholder="Street Address">
+                    </div>
+
+                    <div class="input-group kyc-group full-width">
+                        <label>Address 2 (Optional)</label>
+                        <input type="text" placeholder="Apt, Suite, Unit">
+                    </div>
+
+                    <div class="kyc-grid">
+                        <div class="input-group">
+                            <label>City <span>*</span></label>
+                            <input type="text" placeholder="City">
+                        </div>
+
+                        <div class="input-group">
+                            <label>State <span>*</span></label>
+                            <select class="kyc-select">
+                                <option>State</option>
+                                <option>California</option>
+                                <option>Connecticut</option>
+                                <option>Idaho</option>
+                                <option>Louidians</option>
+                                <option>Michigan</option>
+                                <option>Nevada</option>
+
+                            </select>
+                        </div>
+
+                        <div class="input-group">
+                            <label>Zip Code <span>*</span></label>
+                            <input type="text" placeholder="Zip Code">
+                        </div>
+                    </div>
+
+                    <div class="club-buttons">
+                        <button type="button" class="later-btn">Finish Later</button>
+                        <button type="button" class="verify-btn" id="kycSubmitBtn">Submit</button>
                     </div>
                 </div>
             </div>

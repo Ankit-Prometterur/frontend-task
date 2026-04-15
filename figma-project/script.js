@@ -26,3 +26,11 @@ if (signupForm && signupStep && clubStep) {
         clubStep.style.display = 'block';
     });
 }
+
+const verifyBtn = document.querySelector('.verify-btn');
+const kycStep = document.getElementById('kycStep');
+
+verifyBtn.addEventListener('click', () => {
+    clubStep.style.display = 'none';
+    kycStep.style.display = 'block';
+});

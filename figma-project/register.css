@@ -129,14 +129,14 @@ body {
 }
 
 .step-icon img {
-    width: 24px;
-    height: 26px;
+    width: 30px;
+    height: 28px;
     object-fit: contain;
 }
 
 .step p {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 14px;
     color: #fff;
 }
 
@@ -410,8 +410,8 @@ body {
     }
 
     .step-icon img {
-        width: 20px;
-        height: 22px;
+        width: 30px;
+        height: 28px;
     }
 
     .step p {
@@ -429,7 +429,7 @@ body {
     }
 
     .input-group input {
-        height: 50px;
+        height: 58px;
         font-size: 14px;
     }
 
@@ -515,8 +515,8 @@ body {
     }
 
     .step-icon img {
-        width: 20px;
-        height: 22px;
+        width: 35px;
+        height: 32px;
     }
 
     .step p {
@@ -702,3 +702,185 @@ body {
     }
 
 }
+
+
+.kyc-card{
+    height: 578px;
+    margin-top: 90px;
+    line-height: 1.6;
+}
+
+.kyc-card h2{
+    font-size: 30px;
+    font-weight: 600;
+}
+
+.kyc-card p{
+    font-size: 16px;
+}
+
+.kyc-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 4px;
+    margin-bottom: 28px;
+}
+
+.kyc-select{
+    width: 100%;
+    height: 55px;
+    padding: 0 16px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 6px;
+    background: #232325;
+    color: rgba(255,255,255,0.65);
+    font-size: 16px;
+    outline: none;
+}
+
+.kyc-select option{
+    width: 100%;
+}
+
+.kyc-group{
+    margin-bottom: 15px;
+}
+
+
+@media (max-width: 1200px) {
+    .kyc-step-content {
+        width: 100%;
+    }
+
+    .kyc-card {
+        height: auto;
+        margin-top: 70px;
+    }
+
+    .kyc-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+    }
+
+    .kyc-card h2 {
+        font-size: 25px;
+    }
+
+    .kyc-card p {
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 900px) {
+    .kyc-step-content {
+        width: 100%;
+        max-width: 560px;
+    }
+
+    .kyc-card {
+        margin-top: 56px;
+        height: auto;
+    }
+
+    .kyc-card h2 {
+        font-size: 28px;
+    }
+
+    .kyc-card p {
+        font-size: 15px;
+    }
+
+    .kyc-grid {
+        grid-template-columns: 1fr ;
+        
+    }
+
+    .kyc-grid .input-group:first-child {
+        grid-column: span 2;
+    }
+
+    .kyc-select {
+        /* height: 52px; */
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 600px) {
+    .kyc-step-content {
+        width: 100%;
+    }
+
+    .kyc-card {
+        margin-top: 40px;
+        height: auto;
+    }
+
+    .kyc-card h2 {
+        font-size: 24px;
+    }
+
+    .kyc-card p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .kyc-group {
+        margin-bottom: 12px;
+    }
+
+    .kyc-grid {
+        grid-template-columns: 1fr ;
+        gap: 14px;
+        
+    }
+
+    .kyc-grid .input-group:first-child {
+        grid-column: span 2;
+    }
+
+    .kyc-select {
+        height: 58px;
+        padding: 0 14px;
+        font-size: 14px;
+    }
+
+    .club-buttons {
+        flex-direction: column;
+        gap: 22px;
+    }
+
+    .later-btn,
+    .verify-btn {
+        width: 100%;
+    }
+}
+
+@media (max-width: 430px) {
+    .kyc-step-content {
+        max-width: 100%;
+    }
+
+    .kyc-card {
+        margin-top: 32px;
+    }
+
+    .kyc-card h2 {
+        font-size: 30px;
+    }
+
+    .kyc-card p {
+        font-size: 16px;
+    }
+
+    .kyc-select {
+        height: 58px;
+        font-size: 13px;
+        padding: 0 12px;
+    }
+
+    .kyc-group {
+        margin-bottom: 10px;
+    }
+}
+
