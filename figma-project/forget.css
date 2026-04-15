@@ -30,9 +30,10 @@ body {
 
 .left-container,
 .right-container,
-.right-content{
+.right-content {
     min-width: 0;
 }
+
 .top-overlay {
     position: absolute;
     right: 30px;
@@ -81,14 +82,13 @@ body {
 }
 
 .right-container {
-     width: 100%;
+    width: 100%;
     max-width: 675px;
     height: 1024px;
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top: 148px;
     background: #000;
 }
 
@@ -96,26 +96,32 @@ body {
     width: 100%;
     max-width: 560px;
     height: auto;
-    flex-shrink: 0;
+    padding: 30px 0 0;
+    margin: 0 auto;
 }
 
-.welcome-txt {
+.forget-txt {
     text-align: center;
     margin-bottom: 56px;
 }
 
-.welcome-txt h1 {
+.forget-txt h1 {
     font-size: 48px;
     font-weight: bold;
     line-height: 1.1;
     color: #fff;
 }
 
+.forget-txt p {
+    color: #8C8C8C;
+    margin-top: 20px;
+}
+
 
 .signup-form {
     display: flex;
     flex-direction: column;
-    gap: 28px;
+
 }
 
 
@@ -138,7 +144,7 @@ body {
 
 .input-group input {
     width: 100%;
-    height: 55px;
+    height: 58px;
     padding: 0 16px;
     border: 1px solid rgba(255, 255, 255, 0.06);
     border-radius: 6px;
@@ -156,26 +162,6 @@ body {
     border-color: #843dff;
 }
 
-.password-group input {
-    padding-right: 46px;
-}
-
-.eye-icon {
-    position: absolute;
-    right: 14px;
-    bottom: 15px;
-    width: 24px;
-    height: 24px;
-    opacity: 0.45;
-}
-
-.forgot-link {
-    margin-top: -12px;
-    align-self: flex-end;
-    color: #8C8C8C;
-    font-size: 14px;
-}
-
 .submit-btn {
     width: 100%;
     height: 58px;
@@ -185,38 +171,24 @@ body {
     color: #fff;
     font-size: 20px;
     cursor: pointer;
-    margin-top: 200px;
-}
-
-.bottom-form {
-    display: flex;
-    justify-content: center;
-    gap: 4px;
-    margin-top: 4px;
-    font-size: 14px;
-    color: rgba(255, 255, 255, 0.45);
-}
-
-.bottom-form a {
-    color: #7717FF;
-    text-decoration: none;
-    font-weight: 600;
+    margin-top: 50px;
 }
 
 @media (max-width: 1200px) {
 
 
 
-    .welcome-txt {
+    .forget-txt {
         text-align: center;
         align-items: center;
         margin-top: 40px;
 
     }
 
-    .welcome-txt h1 {
+    .forget-txt h1 {
         font-size: 32px;
     }
+
     .main-container {
         grid-template-columns: minmax(0, 58%) minmax(0, 42%);
     }
@@ -244,19 +216,20 @@ body {
     }
 
     .right-container {
+        margin-bottom: 70px;
         width: 100%;
         height: auto;
-        padding: 40px 36px;
     }
 
     .right-content {
         width: 100%;
+        padding: 40px 16px;
         max-width: 540px;
     }
 
     .submit-btn {
-    margin-top: 180px;
-}
+        margin-top: 40px;
+    }
 
 }
 
@@ -302,17 +275,22 @@ body {
     .right-container {
         width: 100%;
         max-width: 100%;
+        height: auto;
         padding: 40px 28px 60px;
+        display: flex;
+        justify-content: center;
     }
 
     .right-content {
         width: 100%;
         max-width: 560px;
+        padding: 30px 15px 50px;
+        margin: 0 auto;
     }
 
     .submit-btn {
-    margin-top: 150px;
-}
+        margin-top: 32px;
+    }
 
 }
 
@@ -341,6 +319,7 @@ body {
     }
 
     .right-container {
+        margin-bottom: 90px;
         padding: 28px 20px 50px;
     }
 
@@ -351,36 +330,26 @@ body {
     }
 
     .input-group input {
-        height: 50px;
+        height: 58px;
         font-size: 14px;
     }
 
     .submit-btn {
-        height: 52px;
+        height: 58px;
         font-size: 18px;
+        margin-top: 60px;
     }
-
-    .bottom-form {
-        flex-wrap: wrap;
-        text-align: center;
-        font-size: 13px;
-    }
-
-    .submit-btn {
-    margin-top: 130px;
-}
 }
 
 
 @media (max-width: 430px) {
 
-    .welcome-txt {
-        text-align: center;
-        margin-top: 30px;
-        /* margin-bottom: 48px; */
+    .forget-txt {
+        padding: 10px;
+        width: 100%;
     }
 
-    .welcome-txt h1 {
+    .forget-txt h1 {
         font-size: 32px;
     }
 
@@ -418,7 +387,7 @@ body {
     }
 
     .right-container {
-        padding: 24px 20px 40px;
+        padding: 24px 0px 30px 0px;
     }
 
     .input-group {
@@ -431,13 +400,13 @@ body {
     }
 
     .input-group input {
+        width: 100%;
         height: 58px;
         padding: 0 14px;
         font-size: 16px;
     }
 
-    .eye-icon {
-        width: 24px;
-        height: 20px;
+    .submit-btn{
+        width: 100%;
     }
 }
