@@ -1826,7 +1826,7 @@ body {
 
 @media (max-width: 430px) {
     .community-container {
-        width: 430px;
+        width: 100%;
         padding: 50px 16px;
     }
 
