@@ -1,40 +1,97 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forget Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+        rel="stylesheet">
     <link rel="stylesheet" href="forget.css">
 </head>
+
 <body>
     <div class="main-container">
-    <div class="left-container">
-      <img src="./assets/login-bg.png" alt="" class="left-bg">
-      <img src="./assets/overlay-1.png" alt="" class="top-overlay">
-      <img src="./assets/overlay-2.png" alt="" class="side-overlay">
-      <div class="left-content">
-        <img src="./assets/logo.png" alt="" class="logo-img">
-        <img src="./assets/card-img.png" alt="" class="card-img">
-      </div>
-    </div>
-
-    <div class="right-container">
-      <div class="right-content">
-        <div class="forget-txt">
-          <h1>Reset Your Password</h1>
-          <p>Enter your email address and we'll send you a reset password code</p>
+        <div class="left-container">
+            <img src="./assets/login-bg.png" alt="" class="left-bg">
+            <img src="./assets/overlay-1.png" alt="" class="top-overlay">
+            <img src="./assets/overlay-2.png" alt="" class="side-overlay">
+            <div class="left-content">
+                <img src="./assets/logo.png" alt="" class="logo-img">
+                <img src="./assets/card-img.png" alt="" class="card-img">
+            </div>
         </div>
-        <form class="signup-form">
-          <div class="input-group full-width">
-            <label>Email</label>
-            <input type="text" placeholder="Enter your email">
-          </div>
-          <button type="submit" class="submit-btn">Send Reset Code</button>
-        </form>
-      </div>
+
+        <div class="right-container">
+            <div class="right-content forgetContent" id="forgetStep">
+                <div class="forget-txt">
+                    <h1>Reset Your Password</h1>
+                    <p>Enter your email address and we'll send you a reset password code</p>
+                </div>
+                <form class="signup-form">
+                    <div class="input-group full-width">
+                        <label>Email</label>
+                        <input type="text" placeholder="Enter your email">
+                    </div>
+                    <button type="submit" class="submit-btn">Send Reset Code</button>
+                </form>
+            </div>
+
+
+            <div class="right-content verify-content" id="verifyContent" style="display: none;">
+                <div class="verify-top">
+                    <img src="./assets/success-icon.png" alt="" class="verify-email-icon">
+                    <h2>Verify Your Email</h2>
+                    <p>We sent a reset password code to div007@gmail.com. Enter the code below to verify your account.
+                    </p>
+                </div>
+
+                <div class="otp-boxes">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                    <input type="text" maxlength="1" class="otp-input">
+                </div>
+
+                <button class="submit-btn" id="submitBtn">Verify</button>
+                <div class="resend-text">
+                    <span>Didn't receive the email?</span>
+                    <a href="#">Resend code</a>
+                </div>
+            </div>
+
+
+            <div class="right-content new-password-content" id="newPassword" style="display: none;">
+                <div class="password-top">
+                    <h2>Create New Password</h2>
+                    <p>Please enter a new password
+                    </p>
+                </div>
+
+                <form class="signup-form">
+                    <div class="input-group full-width">
+                        <label>New Password*</label>
+                        <input type="text" placeholder="Enter new password">
+                        <img src="./assets/eye-icon.png" alt="" class="eye-icon">
+                    </div>
+
+                    <div class="input-group full-width password-group">
+                        <label>Confirm New Password*</label>
+                        <input type="password" placeholder="Re-enter new password">
+                        <img src="./assets/eye-icon.png" alt="" class="eye-icon">
+                    </div>
+                    <button type="submit" class="submit-btn password-btn">Submit</button>
+
+                </form>
+            </div>
+
+        </div>
+
+
+
     </div>
-  </div>
+    <script src="script.js"></script>
 </body>
+
 </html>

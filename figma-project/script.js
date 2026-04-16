@@ -30,7 +30,38 @@ if (signupForm && signupStep && clubStep) {
 const verifyBtn = document.querySelector('.verify-btn');
 const kycStep = document.getElementById('kycStep');
 
-verifyBtn.addEventListener('click', () => {
-    clubStep.style.display = 'none';
-    kycStep.style.display = 'block';
-});
+if (verifyBtn && clubStep && kycStep) {
+    verifyBtn.addEventListener('click', () => {
+        clubStep.style.display = 'none';
+        kycStep.style.display = 'block';
+    });
+}
+
+
+const resetForm = document.querySelector('.signup-form');
+const forgetStep = document.getElementById('forgetStep');
+const verifyContent = document.getElementById('verifyContent');
+
+
+if (resetForm && forgetStep && verifyContent) {
+    resetForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        forgetStep.style.display = 'none';
+        verifyContent.style.display = 'flex';
+    });
+}
+
+
+// const newPassForm = document.querySelector('.signup-form');
+const submitBtn = document.getElementById('submitBtn');
+const newPassContent = document.getElementById('newPassword');
+
+if (submitBtn && verifyContent && newPassContent) {
+    submitBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+
+        verifyContent.style.display = 'none';
+        newPassContent.style.display = 'block';
+    });
+}
