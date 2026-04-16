@@ -23,7 +23,7 @@
         </div>
 
         <div class="right-container">
-            <div class="right-content signup-step" id="signupStep">
+            <div class="right-content signup-step" id="signupStep" style="display: none;">
                 <div class="three-steps">
                     <div class="step active">
                         <div class="step-icon">
@@ -262,6 +262,51 @@
                     <div class="club-buttons">
                         <button type="button" class="later-btn">Finish Later</button>
                         <button type="button" class="verify-btn" id="kycSubmitBtn">Submit</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="right-content kyc-failed" id="kycFailed">
+                <div class="three-steps">
+                    <div class="step completed">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon1.png" alt="">
+                        </div>
+                        <p>Personal info</p>
+                    </div>
+
+                    <div class="step-line active-line"></div>
+
+                    <div class="step completed">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon2.png" alt="">
+                        </div>
+                        <p>Club info</p>
+                    </div>
+
+                    <div class="step-line active-line"></div>
+
+                    <div class="step active">
+                        <div class="step-icon">
+                            <img src="./assets/step-icon3.png" alt="">
+                        </div>
+                        <p>KYC info</p>
+                    </div>
+                </div>
+
+                <div class="club-card kyc-card failed-card">
+                    <h2>KYC Verification Failed</h2>
+
+                    <p class="club-subtitle">
+                        Some of your details couldn't be verified. Please review and update your information to proceed.
+                        Click the link below to complete KYC.
+                    </p>
+
+                    <div class="club-buttons failed-btn">
+                        <button type="button" class="later-btn">Finish Later</button>
+                        <button type="button" class="verify-btn" id="kycSubmitBtn">Update KYC</button>
                     </div>
                 </div>
             </div>

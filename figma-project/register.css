@@ -567,7 +567,7 @@ body {
 .club-card {
     margin-top: 90px;
     width: 100%;
-    padding: 30px 20px 20px;
+    padding: 30px 20px 20px 30px;
     background: #131314;
     border: 1px solid #202022;
     border-radius: 30px;
@@ -583,7 +583,7 @@ body {
 
 .club-subtitle {
     max-width: 480px;
-    margin: 0 auto 32px;
+    margin: 0 auto 32px 0px;
     color: #FFFFFF;
     font-weight: 400;
     font-size: 14px;
@@ -884,3 +884,44 @@ body {
     }
 }
 
+
+.failed-card{
+    height: 352px;
+}
+
+.failed-card p{
+    text-align: left;
+    height: 130px;
+}
+
+.failed-btn{
+    max-width: 480px;
+}
+
+
+@media (max-width: 430px) {
+    
+
+    .failed-card {
+        margin-top: 110px;
+        height: 340px;
+    }
+
+    .failed-card h2 {
+        font-size: 20px;
+    }
+
+    .failed-card p {
+        font-size: 16px;
+    }
+
+    .kyc-select {
+        height: 58px;
+        font-size: 13px;
+        padding: 0 12px;
+    }
+
+    .kyc-group {
+        margin-bottom: 10px;
+    }
+}
