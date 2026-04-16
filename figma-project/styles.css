@@ -939,7 +939,7 @@ body {
         gap: 20px;
     }
 
-    .game-number{
+    .game-number {
         width: 36px;
         height: 21px;
         font-size: 12px;
@@ -950,11 +950,11 @@ body {
         height: 140px;
     }
 
-    .game-card-content{
+    .game-card-content {
         margin-top: -8px;
     }
 
-    
+
 
     .game-card-content h3 {
         font-size: 20px;
@@ -986,7 +986,7 @@ body {
         width: 135px;
     }
 
-    .game-card-content{
+    .game-card-content {
         margin-top: -3px;
     }
 
@@ -1227,7 +1227,7 @@ body {
     .why-cards {
         gap: 20px;
     }
-    
+
 
     .why-card-image {
         height: 300px;
@@ -1291,7 +1291,7 @@ body {
         font-weight: bold;
         margin-bottom: 10px;
     }
-    
+
 
     .why-card-content button {
         max-width: 90px;
@@ -1300,8 +1300,8 @@ body {
         font-size: 12px;
     }
 
-    .why-card-content .claim-btn{
-        max-width: 90px; 
+    .why-card-content .claim-btn {
+        max-width: 90px;
         font-size: 11px;
     }
 }
@@ -1432,10 +1432,29 @@ body {
 }
 
 .faq-answer {
-    padding: 0 28px 24px;
-    color: #B5B5B5;
+    font-size: 14px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
 }
 
+.faq-item .faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    opacity: 1;
+    padding: 0 28px 24px;
+}
+
+.faq-item .faq-icon {
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(180deg);
+}
 
 @media (max-width: 1200px) {
     .que-container {
@@ -1592,15 +1611,38 @@ body {
         width: 430px;
     }
 
+    .faq-item {
+        overflow: hidden;
+        transition: all 0.35s ease;
+    }
+
     .faq-que {
         font-size: 14px;
         padding: 14px 16px;
     }
 
+    .faq-item:not(.active) {
+        height: 60px;
+    }
+
+    .faq-item.active {
+        height: auto;
+    }
+
     .faq-answer {
-        padding: 0 16px 16px;
+        padding: 0 16px 0px;
         font-size: 13px;
         font-weight: bold;
+    }
+
+    .faq-item.active .faq-answer {
+        padding: 0 16px 18px;
+        max-height: 260px;
+    }
+
+    .faq-answer p {
+        font-size: 13px;
+        line-height: 1.7;
     }
 }
 
@@ -1837,7 +1879,7 @@ body {
         border-radius: 16px;
     }
 
-    .top-comm{
+    .top-comm {
         margin-top: 40px;
     }
 
@@ -2046,29 +2088,29 @@ body {
 
 @media (max-width: 430px) {
 
-    .footer-section{
+    .footer-section {
         padding: 32px 20px 0;
     }
 
-    .footer-content{
+    .footer-content {
         flex-direction: column;
         gap: 30px;
     }
 
-    .footer-left{
+    .footer-left {
         width: 100%;
     }
 
-    .footer-column h4{
+    .footer-column h4 {
         font-size: 14px;
     }
 
-    .footer-column ul li{
+    .footer-column ul li {
         font-size: 14px;
         line-height: 1.1;
     }
-    
-   
+
+
     .division-text {
         border-top: 2px solid rgba(255, 255, 255, 0.08);
         font-weight: bold;
@@ -2098,12 +2140,12 @@ body {
         width: 640px;
     }
 
-    .footer-social-icons{
+    .footer-social-icons {
         position: absolute;
         bottom: -105px;
     }
 
-    .footer-social-icons span{
+    .footer-social-icons span {
         width: 26px;
         height: 26px;
         font-size: 12px;

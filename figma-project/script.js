@@ -74,3 +74,13 @@ if (submitBtn && verifyContent && newPassContent) {
         newPassContent.style.display = 'block';
     });
 }
+
+const faqItems = document.querySelectorAll('.faq-item');
+
+faqItems.forEach(item => {
+    const button = item.querySelector('.faq-que');
+
+    button.addEventListener('click', () => {
+        item.classList.toggle('active');
+    })
+})
