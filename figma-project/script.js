@@ -37,6 +37,15 @@ if (verifyBtn && clubStep && kycStep) {
     });
 }
 
+const kycSubmitBtn = document.getElementById('kycSubmitBtn');
+const kycFailed = document.getElementById('kycFailed');
+
+if(kycSubmitBtn && kycFailed && kycStep){
+    kycSubmitBtn.addEventListener('click', () => {
+        kycStep.style.display = 'none';
+        kycFailed.style.display = 'block';
+    });
+}
 
 const resetForm = document.querySelector('.signup-form');
 const forgetStep = document.getElementById('forgetStep');
