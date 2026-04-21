@@ -342,7 +342,7 @@ body {
 }
 
 
-@media (max-width: 430px) {
+@media (max-width: 500px) {
 
     .forget-txt {
         padding: 10px;
@@ -350,7 +350,7 @@ body {
     }
 
     .forget-txt h1 {
-        font-size: 32px;
+        font-size: 31px;
     }
 
     .left-container {
@@ -370,13 +370,13 @@ body {
     }
 
     .side-overlay {
-        width: 40px;
+        display: none;
     }
 
     .logo-img {
         width: 175px;
         top: 30px;
-        left: 305px;
+        left: 75%;
     }
 
     .card-img {
@@ -596,7 +596,7 @@ body {
     }
 }
 
-@media (max-width: 430px) {
+@media (max-width: 500px) {
     .verify-content {
         width: 100%;
         padding: 22px 14px 18px;
@@ -836,7 +836,7 @@ body {
 
 }
 
-@media (max-width: 430px) {
+@media (max-width: 500px) {
     .new-password-content {
         width: 100%;
         height: 700px;
