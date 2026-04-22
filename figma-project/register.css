@@ -14,7 +14,7 @@ body {
 .main-container {
     width: 100%;
     max-width: 1440px;
-    min-height: 1163px;
+    /* min-height: 1163px; */
     margin: 0 auto;
     display: grid;
     grid-template-columns: minmax(0, 765px) minmax(0, 1fr);
@@ -524,6 +524,7 @@ body {
     .right-content {
         width: 100%;
         max-width: 100%;
+        height: auto;
         padding: 24px 16px 40px;
     }
 
@@ -948,6 +949,7 @@ body {
 }
 
 .failed-card {
+    margin-top: 140px;
     height: 352px;
 }
 
@@ -1006,7 +1008,7 @@ body {
         height: 890px;
     }
 
-    .kyc-card {
+    .failed-card {
         margin-top: 40px;
         height: auto;
     }
@@ -1024,12 +1026,18 @@ body {
 }
 
 @media (max-width: 500px) {
+
+    .failed-container{
+        height: auto;
+    }
+
     .kyc-failed  {
         width: 100%;
+        height: auto;
     }
 
     .failed-card {
-        margin-top: 32px;
+        margin: 100px auto;
     }
 
     .failed-card h2 {

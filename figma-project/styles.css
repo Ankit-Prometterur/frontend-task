@@ -1,6 +1,9 @@
 /* 
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap'); */
 
+@import url('https://fonts.cdnfonts.com/css/gilroy-bold');
+
+
 * {
     margin: 0;
     padding: 0;
@@ -143,7 +146,7 @@ body {
         height: 48px;
         padding: 12px 20px;
         font-size: 14px;
-        border-radius: 12px;
+        border-radius: 10px;
     }
 
     .menu-toggle {
@@ -160,6 +163,7 @@ body {
         height: 60px;
         padding: 16px;
     }
+
 
     .logo .logo-desktop {
         display: none;
@@ -224,6 +228,7 @@ body {
 .hero-content h2 {
     font-size: 56px;
     font-weight: 800;
+    font-family: 'Gilroy-Bold';
     color: #ffffff;
     line-height: 1.1;
 }
@@ -234,9 +239,11 @@ body {
     line-height: 1;
     font-weight: 800;
     color: #ffffff;
+    font-family: 'Gilroy-Bold';
 }
 
 .hero-content h1 span {
+    font-family: 'Gilroy-Bold';
     color: #FF1F3D;
 }
 
@@ -365,6 +372,7 @@ body {
         font-size: 11px;
         padding: 10px;
         margin-top: 5px;
+        border-radius: 8px;
     }
 }
 
@@ -413,6 +421,7 @@ body {
     font-size: 55px;
     font-weight: 800;
     line-height: 1;
+    font-family: 'Gilroy-Bold';
     color: #ffffff;
 }
 
@@ -644,6 +653,7 @@ body {
     font-weight: 600;
     line-height: 1.1;
     margin-bottom: 18px;
+    font-family: 'Gilroy-Bold';
 }
 
 .game-description {
@@ -724,7 +734,7 @@ body {
     color: #ffffff;
     font-size: 32px;
     font-weight: 700;
-
+    font-family: 'Gilroy-Bold';
     margin-bottom: 12px;
 }
 
@@ -736,31 +746,38 @@ body {
     line-height: 1.8;
 }
 
+.game-overlay {
+    display: none;
+    position: absolute;
+    pointer-events: none;
+    z-index: 1;
+}
+
 @media (max-width: 1439px) {
-    .phone-img{
+    .phone-img {
         left: 20px;
         top: 440px;
         width: 400px;
         height: auto;
     }
 
-    .game-right{
+    .game-right {
         width: calc(100% - 460px);
         margin-left: 460px;
         padding-top: 56px;
     }
 
-    .game-card{
+    .game-card {
         width: 100%;
         gap: 24px;
     }
 
-    .game-card img{
+    .game-card img {
         width: 220px;
         height: 150px;
     }
 
-    .game-card-content p{
+    .game-card-content p {
         max-width: 100%;
     }
 }
@@ -794,7 +811,7 @@ body {
         margin-bottom: 40px;
     }
 
-     .phone-img {
+    .phone-img {
         /* position: absolute; */
         left: 20px;
         top: 570px;
@@ -803,13 +820,13 @@ body {
     }
 
 
-    .game-right{
+    .game-right {
         width: calc(100% - 360px);
         margin-left: 360px;
         padding-top: 40px;
     }
 
-    .game-card{
+    .game-card {
         width: 100%;
     }
 
@@ -886,7 +903,36 @@ body {
     .game-section {
         min-height: 969px;
         padding: 20px 16px 40px;
-        overflow: hidden;
+
+        background-image: url('./assets/game-bg.png');
+        background-repeat: repeat-y;
+        background-position: top center;
+        background-size: 100%;
+        width: 100%;
+    }
+
+    .game-bg {
+        display: none;
+    }
+
+    .game-overlay {
+        display: block;
+    }
+
+    .game-overlay-top {
+        width: 230px;
+        top: -15px;
+        right: -10px;
+    }
+
+    .game-overlay-bottom {
+        width: 230px;
+        left: -20px;
+        bottom: 0;
+    }
+
+    .game-center {
+        margin-top: 40px;
     }
 
 
@@ -994,6 +1040,7 @@ body {
     font-size: 48px;
     font-weight: 800;
     text-align: center;
+    font-family: 'Gilroy-Bold';
     line-height: 1.2;
 }
 
@@ -1054,6 +1101,7 @@ body {
     font-weight: 400;
     line-height: 1.25;
     margin-bottom: 18px;
+    font-family: 'Gilroy-Bold';
 }
 
 .why-card-content p {
@@ -1296,6 +1344,7 @@ body {
     color: #ffffff;
     font-size: 48px;
     /* font-weight: 800; */
+    font-family: 'Gilroy-Bold';
     line-height: 1.1;
     max-width: 460px;
     margin-bottom: 40px;
@@ -1593,7 +1642,7 @@ body {
     color: #ffffff;
     font-weight: 400;
     font-size: 48px;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Gilroy-Bold';
     line-height: 1.1;
     margin-bottom: 24px;
 }
@@ -1943,7 +1992,7 @@ body {
         bottom: 8px;
     }
 
-    
+
 }
 
 @media (max-width: 767px) {
@@ -1987,15 +2036,15 @@ body {
         display: none;
     }
 
-    .footer-txt1{
+    .footer-txt1 {
         order: 2;
     }
 
-    .footer-txt2{
+    .footer-txt2 {
         order: 1;
     }
 
-    .footer-txt3{
+    .footer-txt3 {
         order: 3;
     }
 
