@@ -117,7 +117,43 @@ const QuestionCard = ({
         />
       )}
 
-      
+      {question.type === "checkboxes" && (
+        <div className="options">
+          {question.options.map((opt, i) => (
+            <div key={i} className="option">
+              <input type="checkbox" disabled />
+              <input
+                type="text"
+                value={opt}
+                onChange={(e) => {
+                  const newOptions = [...question.options];
+                  newOptions[i] = e.target.value;
+                  updateQuestion(question.id, "options", newOptions);
+                }}
+              />
+              <span
+                className="delete-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteOption(question.id, i);
+                }}
+              >
+                ✕
+              </span>
+            </div>
+          ))}
+
+          <div
+            className="option add-option-row"
+            onClick={() => addOption(question.id)}
+          >
+            <input type="checkbox" disabled />
+            <span className="add-option-text">
+              Add option or <span className="add-other">add "Other"</span>
+            </span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
