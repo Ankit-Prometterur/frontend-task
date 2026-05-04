@@ -15,7 +15,6 @@ const FormBuilder = () => {
         options: ["Option 1"],
 
         answer: "",
-        
       },
     ],
   });
@@ -126,7 +125,6 @@ const FormBuilder = () => {
           />
         </div>
       ))}
-
     </div>
   );
 };

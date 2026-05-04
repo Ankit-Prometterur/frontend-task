@@ -15,7 +15,7 @@ body {
 
 .header-toolbar-floating{
   position: absolute;
-  right: 25px;
+  right: 295px;
   top: 80px;
   display: flex;
   flex-direction: column;

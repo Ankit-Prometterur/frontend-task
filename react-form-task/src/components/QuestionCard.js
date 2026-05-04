@@ -12,7 +12,7 @@ const QuestionCard = ({
   //   const [type, setType] = useState(question.type);
   return (
     <div
-      className={`question-card ${isActive ? "active" : ""}`}
+      className={`question-card ${isActive ? "active" : ""}`} tabIndex={0}   
       onClick={() => setActiveQuestion(question.id)}
     >
       {isActive && (
@@ -150,6 +150,49 @@ const QuestionCard = ({
             <input type="checkbox" disabled />
             <span className="add-option-text">
               Add option or <span className="add-other">add "Other"</span>
+            </span>
+          </div>
+        </div>
+      )}
+
+
+      {question.type === "dropdown" && (
+        <div className="options">
+  
+          {question.options.map((opt, i) => (
+            <div key={i} className="option">
+              {/* <input type="" disabled /> */}
+              <span className="option-index">{i + 1}.</span>
+              <input
+                type="text"
+                value={opt}
+                onChange={(e) => {
+                  const newOptions = [...question.options];
+                  newOptions[i] = e.target.value;
+                  updateQuestion(question.id, "options", newOptions);
+                }}
+              />
+              <span
+                className="delete-btn"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteOption(question.id, i);
+                }}
+              >
+                ✕
+              </span>
+            </div>
+          ))}
+
+          <div
+            className="option add-option-row"
+            onClick={() => addOption(question.id)}
+          >
+            {/* <input type="" disabled /> */}
+            <span className="option-index">{question.options.length + 1}.</span>
+
+            <span className="add-option-text">
+              Add option
             </span>
           </div>
         </div>
