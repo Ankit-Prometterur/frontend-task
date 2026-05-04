@@ -1,4 +1,3 @@
-
 const QuestionCard = ({
   question,
   addQuestion,
@@ -77,7 +76,10 @@ const QuestionCard = ({
               />
               <span
                 className="delete-btn"
-                onClick={(e) => {e.stopPropagation(); deleteOption(question.id, i)}}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteOption(question.id, i);
+                }}
               >
                 ✕
               </span>
@@ -96,6 +98,26 @@ const QuestionCard = ({
           </div>
         </div>
       )}
+
+      {question.type === "short" && (
+        <input
+          type="text"
+          placeholder="Short answer text"
+          className="answer-input"
+          disabled
+        />
+      )}
+
+      {question.type === "paragraph" && (
+        <input
+          type="text"
+          placeholder="Long answer text"
+          className="answer-input"
+          disabled
+        />
+      )}
+
+      
     </div>
   );
 };

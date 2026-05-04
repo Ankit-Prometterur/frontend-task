@@ -11,8 +11,11 @@ const FormBuilder = () => {
         id: Date.now(),
         type: "multiple",
         question: "",
-        options: ["Option 1"],
         required: false,
+        options: ["Option 1"],
+
+        answer: "",
+        
       },
     ],
   });
