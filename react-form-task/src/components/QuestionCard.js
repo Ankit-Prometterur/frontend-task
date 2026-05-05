@@ -11,6 +11,16 @@ const QuestionCard = ({
   setActiveQuestion,
 }) => {
   //   const [type, setType] = useState(question.type);
+  const getIcon = (type) => {
+    switch(type){
+      case "heart":
+        return "♡";
+      case "like":
+        return "👍🏻"  
+      default:
+        return "☆";
+    }
+  }
   return (
     <div
       className={`question-card ${isActive ? "active" : ""}`}
@@ -298,6 +308,81 @@ const QuestionCard = ({
               </div>
             </>
           )}
+        </div>
+      )}
+
+      {question.type === "rating" && (
+        <div className="rating-container">
+          {isActive ? (
+            <>
+            <div className="rating-settings">
+              <select
+                value={question.rating.max}
+                onChange={(e) =>
+                  updateQuestion(question.id, "rating", {
+                    ...question.rating,
+                    max: Number(e.target.value),
+                  })
+                }
+              >
+                {[3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                  <option key={n} value={n}>
+                    {n}
+                  </option>
+                ))}
+              </select>
+
+              <select
+                value={question.rating.icon}
+                onChange={(e) =>
+                  updateQuestion(question.id, "rating", {
+                    ...question.rating,
+                    icon: e.target.value,
+                  })
+                }
+              >
+                <option value="star">⭐</option>
+                <option value="heart">❤️</option>
+                <option value="like">👍</option>
+              </select>
+            </div>
+
+            <div className="rating-numbers">
+              {Array.from({
+                length: question.rating.max
+              }, (_, i) => (
+                <span key={i}>{i + 1}</span>
+              ))}
+            </div>
+
+            <div className="rating-icons">
+              {Array.from({length: question.rating.max}, (_, i) => {
+                const value = i + 1;
+                return(
+                  <span key={value} className="rating-icon">
+                    {getIcon(question.rating.icon)}
+                  </span>
+                )
+              })}
+            </div>
+            </>
+
+            
+          ) : (
+            <div className="rating-icons">
+                {Array.from({length: question.rating.max}, (_, i) => {
+                  const value = i + 1;
+                  return(
+                    <div key={value} className="rating-icon">
+                      <span className="rating-num">{value}</span>
+                      {getIcon(question.rating.icon)}
+                    </div>
+                  )
+                })}
+            </div>
+          )}
+
+          
         </div>
       )}
     </div>

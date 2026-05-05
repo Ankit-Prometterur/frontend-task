@@ -3,7 +3,6 @@ import QuestionCard from "./QuestionCard";
 import FormHeader from "./FormHeader";
 
 const FormBuilder = () => {
-
   // 🔥 Question Factory
   const createQuestion = (type = "multiple") => {
     const base = {
@@ -33,6 +32,16 @@ const FormBuilder = () => {
           },
         };
 
+      case "rating":
+        return {
+          ...base,
+          rating: {
+            max: 5,
+            icon: "star",
+          },
+          answer: 0,
+        };
+
       case "short":
       case "paragraph":
         return {
@@ -52,14 +61,14 @@ const FormBuilder = () => {
   });
 
   const [activeQuestionId, setActiveQuestionId] = useState(
-    form.questions[0]?.id
+    form.questions[0]?.id,
   );
 
   const updateQuestion = (id, field, value) => {
     setForm((prev) => ({
       ...prev,
       questions: prev.questions.map((q) =>
-        q.id === id ? { ...q, [field]: value } : q
+        q.id === id ? { ...q, [field]: value } : q,
       ),
     }));
   };
@@ -70,12 +79,12 @@ const FormBuilder = () => {
       questions: prev.questions.map((q) =>
         q.id === id
           ? {
-              ...createQuestion(newType), 
-              id: q.id,                   
-              question: q.question,       
-              required: q.required,       
+              ...createQuestion(newType),
+              id: q.id,
+              question: q.question,
+              required: q.required,
             }
-          : q
+          : q,
       ),
     }));
   };
@@ -87,9 +96,12 @@ const FormBuilder = () => {
         q.id === id
           ? {
               ...q,
-              options: [...(q.options || []), `Option ${(q.options?.length || 0) + 1}`],
+              options: [
+                ...(q.options || []),
+                `Option ${(q.options?.length || 0) + 1}`,
+              ],
             }
-          : q
+          : q,
       ),
     }));
   };
@@ -103,7 +115,7 @@ const FormBuilder = () => {
               ...q,
               options: q.options.filter((_, i) => i !== index),
             }
-          : q
+          : q,
       ),
     }));
   };
@@ -166,7 +178,7 @@ const FormBuilder = () => {
           <QuestionCard
             question={q}
             updateQuestion={updateQuestion}
-            changeQuestionType={changeQuestionType}  
+            changeQuestionType={changeQuestionType}
             addOption={addOption}
             deleteOption={deleteOption}
             isActive={q.id === activeQuestionId}
