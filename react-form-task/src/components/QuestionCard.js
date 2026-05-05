@@ -1,3 +1,5 @@
+import React from "react";
+
 const QuestionCard = ({
   question,
   addQuestion,
@@ -12,15 +14,15 @@ const QuestionCard = ({
 }) => {
   //   const [type, setType] = useState(question.type);
   const getIcon = (type) => {
-    switch(type){
+    switch (type) {
       case "heart":
         return "♡";
       case "like":
-        return "👍🏻"  
+        return "👍🏻";
       default:
         return "☆";
     }
-  }
+  };
   return (
     <div
       className={`question-card ${isActive ? "active" : ""}`}
@@ -315,74 +317,186 @@ const QuestionCard = ({
         <div className="rating-container">
           {isActive ? (
             <>
-            <div className="rating-settings">
-              <select
-                value={question.rating.max}
-                onChange={(e) =>
-                  updateQuestion(question.id, "rating", {
-                    ...question.rating,
-                    max: Number(e.target.value),
-                  })
-                }
-              >
-                {[3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
-                  <option key={n} value={n}>
-                    {n}
-                  </option>
-                ))}
-              </select>
+              <div className="rating-settings">
+                <select
+                  value={question.rating.max}
+                  onChange={(e) =>
+                    updateQuestion(question.id, "rating", {
+                      ...question.rating,
+                      max: Number(e.target.value),
+                    })
+                  }
+                >
+                  {[3, 4, 5, 6, 7, 8, 9, 10].map((n) => (
+                    <option key={n} value={n}>
+                      {n}
+                    </option>
+                  ))}
+                </select>
 
-              <select
-                value={question.rating.icon}
-                onChange={(e) =>
-                  updateQuestion(question.id, "rating", {
-                    ...question.rating,
-                    icon: e.target.value,
-                  })
-                }
-              >
-                <option value="star">⭐</option>
-                <option value="heart">❤️</option>
-                <option value="like">👍</option>
-              </select>
-            </div>
+                <select
+                  value={question.rating.icon}
+                  onChange={(e) =>
+                    updateQuestion(question.id, "rating", {
+                      ...question.rating,
+                      icon: e.target.value,
+                    })
+                  }
+                >
+                  <option value="star">⭐</option>
+                  <option value="heart">❤️</option>
+                  <option value="like">👍</option>
+                </select>
+              </div>
 
-            <div className="rating-numbers">
-              {Array.from({
-                length: question.rating.max
-              }, (_, i) => (
-                <span key={i}>{i + 1}</span>
-              ))}
-            </div>
+              <div className="rating-numbers">
+                {Array.from(
+                  {
+                    length: question.rating.max,
+                  },
+                  (_, i) => (
+                    <span key={i}>{i + 1}</span>
+                  ),
+                )}
+              </div>
 
-            <div className="rating-icons">
-              {Array.from({length: question.rating.max}, (_, i) => {
-                const value = i + 1;
-                return(
-                  <span key={value} className="rating-icon">
-                    {getIcon(question.rating.icon)}
-                  </span>
-                )
-              })}
-            </div>
+              <div className="rating-icons">
+                {Array.from({ length: question.rating.max }, (_, i) => {
+                  const value = i + 1;
+                  return (
+                    <span key={value} className="rating-icon">
+                      {getIcon(question.rating.icon)}
+                    </span>
+                  );
+                })}
+              </div>
             </>
-
-            
           ) : (
             <div className="rating-icons">
-                {Array.from({length: question.rating.max}, (_, i) => {
-                  const value = i + 1;
-                  return(
-                    <div key={value} className="rating-icon">
-                      <span className="rating-num">{value}</span>
-                      {getIcon(question.rating.icon)}
-                    </div>
-                  )
-                })}
+              {Array.from({ length: question.rating.max }, (_, i) => {
+                const value = i + 1;
+                return (
+                  <div key={value} className="rating-icon">
+                    <span className="rating-num">{value}</span>
+                    {getIcon(question.rating.icon)}
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </div>
+      )}
+
+      {question.type === "choice-grid" && (
+        <div className="grid-container">
+          {isActive && (
+            <div className="grid-edit">
+              <div>
+                <p>Rows</p>
+                {question.rows.map((row, i) => (
+                  <div key={i} className="row-item-grid">
+                    <span className="row-index">{i + 1}.</span>
+                    <input
+                      type="text"
+                      value={row}
+                      onChange={(e) => {
+                        const newRows = [...question.rows];
+                        newRows[i] = e.target.value;
+                        updateQuestion(question.id, "rows", newRows);
+                      }}
+                    />
+
+                    <span
+                      className="delete-btn-grid"
+                      onClick={() => deleteOption(question.id, i, "rows")}
+                    >
+                      ✕
+                    </span>
+                  </div>
+                ))}
+
+                <div className="add-row-wrapper">
+                  <span className="row-index">{question.rows.length + 1}.</span>
+                  <span
+                    className="add-row"
+                    onClick={() => addOption(question.id, "rows", "Row")}
+                  >
+                    Add row
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <p>Columns</p>
+                {question.columns.map((col, i) => (
+                  <div key={i} className="row-item-grid">
+                    <input type="radio" disabled />
+                    <input
+                      type="text"
+                      value={col}
+                      onChange={(e) => {
+                        const newCols = [...question.columns];
+                        newCols[i] = e.target.value;
+                        updateQuestion(question.id, "columns", newCols);
+                      }}
+                    />
+
+                    <span
+                      className="delete-btn-grid"
+                      onClick={() => deleteOption(question.id, i, "columns")}
+                    >
+                      ✕
+                    </span>
+                  </div>
+                ))}
+
+                <div className="add-row-wrapper">
+                  <input type="radio" disabled />
+                  <span
+                    className="add-row"
+                    onClick={() => addOption(question.id, "columns", "Column")}
+                  >
+                    Add column
+                  </span>
+                </div>
+              </div>
             </div>
           )}
 
-          
+          {!isActive && (
+            <div
+              className="grid-table"
+              style={{
+                gridTemplateColumns: `150px repeat(${question.columns.length}, 1fr)`,
+              }}
+            >
+            
+              <div className="grid-empty"></div>
+
+              {/* column headers */}
+              {question.columns.map((col, i) => (
+                <div key={i} className="grid-col-header">
+                  {col}
+                </div>
+              ))}
+
+              {/* rows */}
+              {question.rows.map((row, rowIndex) => (
+                <React.Fragment key={rowIndex}>
+                  <div className="grid-row-header">{row}</div>
+
+                  {question.columns.map((_, colIndex) => (
+                    <div key={`${rowIndex}-${colIndex}`} className="grid-cell">
+                      <input
+                        type="radio"
+                        name={`row-${question.id}-${rowIndex}`}
+                      />
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+            </div>
+          )}
         </div>
       )}
     </div>

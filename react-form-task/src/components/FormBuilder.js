@@ -42,6 +42,14 @@ const FormBuilder = () => {
           answer: 0,
         };
 
+      case "choice-grid":
+        return {
+          ...base,
+          rows: ["Row 1"],
+          columns: ["Column 1"],
+          answers: {},
+        };
+
       case "short":
       case "paragraph":
         return {
@@ -89,16 +97,16 @@ const FormBuilder = () => {
     }));
   };
 
-  const addOption = (id) => {
+  const addOption = (id, field = "options", label = "Option") => {
     setForm((prev) => ({
       ...prev,
       questions: prev.questions.map((q) =>
         q.id === id
           ? {
               ...q,
-              options: [
-                ...(q.options || []),
-                `Option ${(q.options?.length || 0) + 1}`,
+              [field]: [
+                ...(q[field] || []),
+                `${label} ${(q[field]?.length || 0) + 1}`,
               ],
             }
           : q,
@@ -106,14 +114,14 @@ const FormBuilder = () => {
     }));
   };
 
-  const deleteOption = (id, index) => {
+  const deleteOption = (id, index, field="options") => {
     setForm((prev) => ({
       ...prev,
       questions: prev.questions.map((q) =>
         q.id === id
           ? {
               ...q,
-              options: q.options.filter((_, i) => i !== index),
+              [field]: q[field].filter((_, i) => i !== index),
             }
           : q,
       ),
