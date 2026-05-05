@@ -58,6 +58,13 @@ const FormBuilder = () => {
           answer: "",
         };
 
+      case "date":
+      case "time":
+        return {
+          ...base,
+          answer: "",
+        };
+
       default:
         return base;
     }

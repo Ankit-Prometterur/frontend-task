@@ -522,3 +522,50 @@ body {
   width: 16px;
   height: 16px;
 }
+
+
+.date-container {
+  margin-top: 16px;
+}
+
+.date-input {
+  width: 200px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 6px 0;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+}
+
+.date-input:focus {
+  border-bottom: 2px solid #673ab7;
+}
+
+
+.date-input::placeholder {
+  color: #5f6368;
+}
+
+
+.time-container {
+  margin-top: 16px;
+}
+
+.time-input {
+  width: 150px;
+  border: none;
+  border-bottom: 1px solid #ccc;
+  padding: 6px 0;
+  font-size: 14px;
+  outline: none;
+  background: transparent;
+}
+
+.time-input:focus {
+  border-bottom: 2px solid #673ab7;
+}
+
+.time-input::placeholder {
+  color: #5f6368;
+}

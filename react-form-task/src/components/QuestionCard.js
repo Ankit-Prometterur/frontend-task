@@ -470,7 +470,6 @@ const QuestionCard = ({
                 gridTemplateColumns: `150px repeat(${question.columns.length}, 1fr)`,
               }}
             >
-            
               <div className="grid-empty"></div>
 
               {question.columns.map((col, i) => (
@@ -497,7 +496,6 @@ const QuestionCard = ({
           )}
         </div>
       )}
-
 
       {question.type === "checkbox-grid" && (
         <div className="grid-container">
@@ -582,7 +580,6 @@ const QuestionCard = ({
                 gridTemplateColumns: `150px repeat(${question.columns.length}, 1fr)`,
               }}
             >
-            
               <div className="grid-empty"></div>
               {question.columns.map((col, i) => (
                 <div key={i} className="grid-col-header">
@@ -605,6 +602,51 @@ const QuestionCard = ({
                 </React.Fragment>
               ))}
             </div>
+          )}
+        </div>
+      )}
+
+      {question.type === "date" && (
+        <div className="date-container">
+          {isActive ? (
+            <input
+              type="text"
+              placeholder="Month, day, year"
+              className="date-input"
+              disabled
+            />
+          ) : (
+            <input
+              type="date"
+              className="date-input"
+              value={question.answer}
+              onChange={(e) =>
+                updateQuestion(question.id, "answer", e.target.value)
+              }
+            />
+          )}
+        </div>
+      )}
+
+      {question.type === "time" && (
+        <div className="time-container">
+          {isActive ? (
+            /* 🔥 EDIT MODE (preview only) */
+            <input
+              type="text"
+              placeholder="Time"
+              className="time-input"
+              disabled
+            />
+          ) : (
+            <input
+              type="time"
+              className="time-input"
+              value={question.answer}
+              onChange={(e) =>
+                updateQuestion(question.id, "answer", e.target.value)
+              }
+            />
           )}
         </div>
       )}
