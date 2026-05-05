@@ -199,7 +199,7 @@ body {
 
   width: 32px;
   height: 32px;
-
+  font-weight: bold;
   border-radius: 50%;
   cursor: pointer;
 
@@ -380,7 +380,7 @@ body {
   margin-bottom: 6px;
 }
 
-/* 🔥 ICONS */
+
 .rating-icons {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
@@ -411,6 +411,7 @@ body {
 
 .grid-edit p{
   font-size: 14px;
+  font-weight: 600;
   margin-bottom: 12px;
 }
 
@@ -495,4 +496,29 @@ body {
 .grid-cell {
   display: flex;
   justify-content: center;
+}
+
+.row-item-grid input[type="checkbox"],
+.row-item-grid input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}
+
+.add-row-wrapper input[type="checkbox"],
+.add-row-wrapper input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}
+
+.grid-cell input[type="checkbox"],
+.grid-cell input[type="radio"] {
+  width: 16px;
+  height: 16px;
+}
+
+
+.option input[type="checkbox"],
+.option input[type="radio"] {
+  width: 16px;
+  height: 16px;
 }

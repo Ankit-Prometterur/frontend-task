@@ -43,6 +43,7 @@ const FormBuilder = () => {
         };
 
       case "choice-grid":
+      case "checkbox-grid":
         return {
           ...base,
           rows: ["Row 1"],
@@ -114,7 +115,7 @@ const FormBuilder = () => {
     }));
   };
 
-  const deleteOption = (id, index, field="options") => {
+  const deleteOption = (id, index, field = "options") => {
     setForm((prev) => ({
       ...prev,
       questions: prev.questions.map((q) =>

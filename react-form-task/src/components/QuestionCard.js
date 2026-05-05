@@ -473,14 +473,12 @@ const QuestionCard = ({
             
               <div className="grid-empty"></div>
 
-              {/* column headers */}
               {question.columns.map((col, i) => (
                 <div key={i} className="grid-col-header">
                   {col}
                 </div>
               ))}
 
-              {/* rows */}
               {question.rows.map((row, rowIndex) => (
                 <React.Fragment key={rowIndex}>
                   <div className="grid-row-header">{row}</div>
@@ -489,6 +487,117 @@ const QuestionCard = ({
                     <div key={`${rowIndex}-${colIndex}`} className="grid-cell">
                       <input
                         type="radio"
+                        name={`row-${question.id}-${rowIndex}`}
+                      />
+                    </div>
+                  ))}
+                </React.Fragment>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+
+
+      {question.type === "checkbox-grid" && (
+        <div className="grid-container">
+          {isActive && (
+            <div className="grid-edit">
+              <div>
+                <p>Rows</p>
+                {question.rows.map((row, i) => (
+                  <div key={i} className="row-item-grid">
+                    <span className="row-index">{i + 1}.</span>
+                    <input
+                      type="text"
+                      value={row}
+                      onChange={(e) => {
+                        const newRows = [...question.rows];
+                        newRows[i] = e.target.value;
+                        updateQuestion(question.id, "rows", newRows);
+                      }}
+                    />
+
+                    <span
+                      className="delete-btn-grid"
+                      onClick={() => deleteOption(question.id, i, "rows")}
+                    >
+                      ✕
+                    </span>
+                  </div>
+                ))}
+
+                <div className="add-row-wrapper">
+                  <span className="row-index">{question.rows.length + 1}.</span>
+                  <span
+                    className="add-row"
+                    onClick={() => addOption(question.id, "rows", "Row")}
+                  >
+                    Add row
+                  </span>
+                </div>
+              </div>
+
+              <div>
+                <p>Columns</p>
+                {question.columns.map((col, i) => (
+                  <div key={i} className="row-item-grid">
+                    <input type="checkbox" disabled />
+                    <input
+                      type="text"
+                      value={col}
+                      onChange={(e) => {
+                        const newCols = [...question.columns];
+                        newCols[i] = e.target.value;
+                        updateQuestion(question.id, "columns", newCols);
+                      }}
+                    />
+
+                    <span
+                      className="delete-btn-grid"
+                      onClick={() => deleteOption(question.id, i, "columns")}
+                    >
+                      ✕
+                    </span>
+                  </div>
+                ))}
+
+                <div className="add-row-wrapper">
+                  <input type="checkbox" disabled />
+                  <span
+                    className="add-row"
+                    onClick={() => addOption(question.id, "columns", "Column")}
+                  >
+                    Add column
+                  </span>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {!isActive && (
+            <div
+              className="grid-table"
+              style={{
+                gridTemplateColumns: `150px repeat(${question.columns.length}, 1fr)`,
+              }}
+            >
+            
+              <div className="grid-empty"></div>
+              {question.columns.map((col, i) => (
+                <div key={i} className="grid-col-header">
+                  {col}
+                </div>
+              ))}
+
+              {question.rows.map((row, rowIndex) => (
+                <React.Fragment key={rowIndex}>
+                  <div className="grid-row-header">{row}</div>
+
+                  {question.columns.map((_, colIndex) => (
+                    <div key={`${rowIndex}-${colIndex}`} className="grid-cell">
+                      <input
+                        type="checkbox"
                         name={`row-${question.id}-${rowIndex}`}
                       />
                     </div>
